@@ -1,24 +1,25 @@
 <template>
     <div id="app">
-
-        <router-view></router-view> <!--组件-->
-        <FooterGuide></FooterGuide>
+        <header-guide></header-guide>
+        <left-guide></left-guide>
     </div>
 
 </template>
 <script>
-    import FooterGuide from './components/FooterGuide/FooterGuide'
+    import HeaderGuide from './components/HeaderGuide/HeaderGuide'
+    import LeftGuide from './components/LeftGuide/LeftGuide'
 
 
     export default {
-        name: "App",
-        components:[
-            FooterGuide
-        ]
+        name: "app",
+        components:{
+            HeaderGuide,
+            LeftGuide
+        },
     }
 
 </script>
-<style scoped  lang="stylus" rel="stylesheet/stylus">
+<style  lang="stylus" rel="stylesheet/stylus">
     
 
 </style>
