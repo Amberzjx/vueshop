@@ -1,5 +1,6 @@
 <template>
     <div id="header-guide">
+        <menu-collapse></menu-collapse>
         <div class="site-logo">
             <img src="../../../static/images/tcl-logo.png" >
             <div class="site-name">
@@ -13,10 +14,13 @@
 
 <script>
     import HeaderNav from './HeaderNav'
+    import MenuCollapse from '../MenuCollapse/MenuCollapse'
+
     export default {
         name: "header-guide",
         components:{
-            HeaderNav
+            HeaderNav,
+            MenuCollapse
         },
         data() {
             return {
