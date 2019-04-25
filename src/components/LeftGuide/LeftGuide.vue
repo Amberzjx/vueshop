@@ -4,51 +4,34 @@
             <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="leftMenu"
                      background-color="#545c64"
                      text-color="#fff"
-                     active-text-color="#ffd04b">
-                <el-submenu index="1">
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span>导航一</span>
+                     active-text-color="#ffd04b"  unique-opened>
+                <template v-for="item in navs">
+                    <template v-if="item.subs">
+                        <el-submenu :index="item.index" :key="item.index">
+                            <template slot="title">
+                                <i :class="item.icon"></i><span slot="title">{{ item.title }}</span>
+                            </template>
+                            <template v-for="subItem in item.subs">
+                                <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
+                                    <!--三级-->
+                                    <template slot="title">{{ subItem.title }}</template>
+                                    <el-menu-item v-for="(threeItem,i) in subItem.subs" :key="i" :index="threeItem.index">
+                                        {{ threeItem.title }}
+                                    </el-menu-item>
+                                </el-submenu>
+                                <el-menu-item v-else :index="subItem.index" :key="subItem.index">
+                                    {{ subItem.title }}
+                                </el-menu-item>
+                            </template>
+                        </el-submenu>
                     </template>
-                    <el-menu-item-group>
-                        <template slot="title">分组一</template>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
-                        <el-menu-item index="1-3">选项3</el-menu-item>
-                    </el-menu-item-group>
-                    <el-submenu index="1-4">
-                        <template slot="title">选项4</template>
-                        <el-menu-item index="1-4-1">选项1</el-menu-item>
-                    </el-submenu>
-                </el-submenu>
-                <el-menu-item index="2">
-                    <i class="el-icon-menu"></i>
-                    <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                    <i class="el-icon-document"></i>
-                    <span slot="title">导航三</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
-                </el-menu-item>
+                    <template v-else>
+                        <el-menu-item :index="item.index" :key="item.index">
+                            <i :class="item.icon"></i><span slot="title">{{ item.title }}</span>
+                        </el-menu-item>
+                    </template>
+                </template>
+
             </el-menu>
         </div>
     </div>
@@ -62,22 +45,22 @@
                 isCollapse: false,
                 navs: [
                     {
-                        icon: 'el-icon-lx-home',
+                        icon: 'el-icon-document',
                         index: 'dashboard',
                         title: '首页'
                     },
                     {
-                        icon: 'el-icon-lx-cascades',
+                        icon: 'el-icon-menu',
                         index: 'table',
                         title: '基础表格'
                     },
                     {
-                        icon: 'el-icon-lx-copy',
+                        icon: 'el-icon-location',
                         index: 'tabs',
                         title: 'tab选项卡'
                     },
                     {
-                        icon: 'el-icon-lx-calendar',
+                        icon: 'el-icon-location',
                         index: '3',
                         title: '表单相关',
                         subs: [
@@ -106,17 +89,17 @@
                         ]
                     },
                     {
-                        icon: 'el-icon-lx-emoji',
+                        icon: 'el-icon-location',
                         index: 'icon',
                         title: '自定义图标'
                     },
                     {
-                        icon: 'el-icon-lx-favor',
+                        icon: 'el-icon-location',
                         index: 'charts',
                         title: 'schart图表'
                     },
                     {
-                        icon: 'el-icon-rank',
+                        icon: 'el-icon-location',
                         index: '6',
                         title: '拖拽组件',
                         subs: [
@@ -131,7 +114,7 @@
                         ]
                     },
                     {
-                        icon: 'el-icon-lx-warn',
+                        icon: 'el-icon-location',
                         index: '7',
                         title: '错误处理',
                         subs: [
@@ -170,7 +153,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
     .left-menu
         /*width 200px*/
-        min-height 100%
+        height 100%
         display: block;
         position: absolute;
         left: 0;
@@ -188,7 +171,8 @@
         height:100%
 
     .el-menu
-        height:auto !important
+        height:inherit !important
+
     .el-menu-item-group>ul{
         height:auto !important
     }
