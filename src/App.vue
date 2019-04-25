@@ -1,20 +1,16 @@
 <template>
     <div id="app">
-        <header-guide></header-guide>
-        <left-guide></left-guide>
+        <home></home>
     </div>
 
 </template>
 <script>
-    import HeaderGuide from './components/HeaderGuide/HeaderGuide'
-    import LeftGuide from './components/LeftGuide/LeftGuide'
-
+    import Home from './components/common/Home'
 
     export default {
         name: "app",
         components:{
-            HeaderGuide,
-            LeftGuide
+            Home
         },
     }
 

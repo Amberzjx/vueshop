@@ -9,18 +9,19 @@
         </div>
         <header-nav></header-nav>
 
+
     </div>
 </template>
 
 <script>
     import HeaderNav from './HeaderNav'
-    import MenuCollapse from '../MenuCollapse/MenuCollapse'
+    import MenuCollapse from './MenuCollapse'
 
     export default {
         name: "header-guide",
         components:{
             HeaderNav,
-            MenuCollapse
+            MenuCollapse,
         },
         data() {
             return {
