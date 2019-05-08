@@ -4,7 +4,7 @@
             <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="leftMenu"
                      background-color="#545c64"
                      text-color="#fff"
-                     active-text-color="#ffd04b"  unique-opened>
+                     active-text-color="#ffd04b"  unique-opened  router>
                 <template v-for="item in navs">
                     <template v-if="item.subs">
                         <el-submenu :index="item.index" :key="item.index">
@@ -90,50 +90,20 @@
                     },
                     {
                         icon: 'el-icon-location',
-                        index: 'icon',
-                        title: '自定义图标'
-                    },
-                    {
-                        icon: 'el-icon-location',
-                        index: 'charts',
-                        title: 'schart图表'
-                    },
-                    {
-                        icon: 'el-icon-location',
                         index: '6',
                         title: '拖拽组件',
-                        subs: [
-                            {
-                                index: 'drag',
-                                title: '拖拽列表',
-                            },
-                            {
-                                index: 'dialog',
-                                title: '拖拽弹框',
-                            }
-                        ]
                     },
                     {
                         icon: 'el-icon-location',
                         index: '7',
                         title: '错误处理',
-                        subs: [
-                            {
-                                index: 'permission',
-                                title: '权限测试'
-                            },
-                            {
-                                index: '404',
-                                title: '404页面'
-                            }
-                        ]
                     }
                 ]
             };
         }
         , computed: {
             leftMenu(){
-                return this.$store.state.leftMenu
+                return this.$store.state.leftMenu //监听变量的变化
             }
         }
         , watch:{

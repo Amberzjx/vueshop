@@ -2,7 +2,13 @@
     <div id="home">
         <header-guide></header-guide>
         <left-guide></left-guide>
+        <div  class="content-box">
+            <!--tags标签-->
+            <tags-view></tags-view>
 
+            <!--主内容-->
+
+        </div>
     </div>
 </template>
 
@@ -11,6 +17,7 @@
     import MenuCollapse from './MenuCollapse'
     import HeaderGuide from './HeaderGuide'
     import LeftGuide from './LeftGuide'
+    import TagsView from './TagsView'
 
     export default {
         name: "home",
@@ -19,6 +26,7 @@
             MenuCollapse,
             HeaderGuide,
             LeftGuide,
+            TagsView,
         },
     }
 </script>

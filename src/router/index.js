@@ -5,35 +5,70 @@ import Vue from 'Vue'
 import VueRouter from 'vue-router'
 
 //引入组件
-import Msite from '../pages/Msite/Msite'
-import Order from '../pages/Order/Order'
-import Profile from '../pages/Profile/Profile'
-import Search from '../pages/Search/Search'
+import TZT from '../components/pages/403'
+import BaseForm from '../components/pages/BaseForm'
+import BaseTable from '../components/pages/BaseTable'
+import Login from '../components/pages/Login'
+import Markdown from '../components/pages/Markdown'
+import Tabs from '../components/pages/Tabs'
+import Upload from '../components/pages/Upload'
+import VueEditor from '../components/pages/VueEditor'
+import Dashboard from '../components/pages/Dashboard'
+import Home from '../components/common/Home'
 
 //声明使用插件
-Vue.use(VueRouter)
+
+Vue.use(VueRouter);
+
 export default new VueRouter({
+
     //所有路由
     routes:[
         {
-            path:'/msite',
-            components:Msite
-        },
-        {
-            path:'/order',
-            components:Order
-        },
-        {
-            path:'/profile',
-            components:Profile
-        },
-        {
-            path:'/search',
-            components:Search
-        },
-        {
             path:'/',
-            components:Msite
-        },
+            components:Home,
+            children:[
+                {
+                    path:'/dashboard',
+                    components:Dashboard
+                }
+                ,{
+                    path:'/basetable',
+                    components:BaseTable
+                }
+                ,{
+                    path:'/tabs',
+                    components:Tabs
+                }
+                ,{
+                    path:'/tabs',
+                    components:Tabs
+                }
+                ,{
+                    path:'/login',
+                    components:Login
+                }
+                ,{
+                    path:'/markdown',
+                    components:Markdown
+                }
+                ,{
+                    path:'/upload',
+                    components:Upload
+                }
+                ,{
+                    path:'/vueeditor',
+                    components:VueEditor
+                }
+                ,{
+                    path:'/403',
+                    components:TZT
+                }
+            ]
+        }
+        ,{
+            path:'/',
+            components:BaseForm
+        }
     ]
 })

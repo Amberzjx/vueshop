@@ -15,7 +15,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({//状态管理
     state:{
-        leftMenu:false
+        leftMenu:true
     }
     , getters:{
 
