@@ -1,16 +1,19 @@
 <template>
     <div id="app">
-        <home></home>
+        <Mstie></Mstie>
+        <router-view></router-view>
     </div>
 
 </template>
 <script>
     import Home from './components/common/Home'
+    import Mstie from './components/pages/Msite/Msite'
 
     export default {
         name: "app",
         components:{
             Home
+            ,Mstie
         },
     }
 

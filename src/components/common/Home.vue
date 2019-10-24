@@ -28,6 +28,9 @@
             LeftGuide,
             TagsView,
         },
+        mounted(){
+            alert(JSON.stringify(this.$route))
+        }
     }
 </script>
 
